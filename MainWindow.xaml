@@ -1,0 +1,21 @@
+﻿<Window x:Class="magasin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:magasin"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Menu>
+            <MenuItem Header="_Magasin">
+                <MenuItem Header="Catalogue" Click="MenuItem_Click"/>
+                <MenuItem Header="Gestion" Click="MenuItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Produit">
+                <MenuItem Header="Ajouter un produit" Click="MenuItem_Click"/>
+            </MenuItem>
+        </Menu>
+        <Frame Height="375" Name="display" Source="customersList.xaml" NavigationUIVisibility="Hidden"></Frame>
+    </Grid>
+</Window>
