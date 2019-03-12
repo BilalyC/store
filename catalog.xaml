@@ -9,43 +9,45 @@
       Title="catalog">
 
     <Grid Background="Beige">
-        <Menu>
-            <MenuItem Header="Categorie de musique">
-                <MenuItem Header="Tous" Click="MenuItem_Click"/>
-                <MenuItem Header="Jazz" Click="MenuItem_Click"/>
-                <MenuItem Header="Rock" Click="MenuItem_Click"/>
-                <MenuItem Header="Classique" Click="MenuItem_Click"/>
-                <MenuItem Header="Electro" Click="MenuItem_Click"/>
-                <MenuItem Header="Rap" Click="MenuItem_Click"/>
-            </MenuItem>
-        </Menu>
-        <DockPanel Background="Beige">
-            <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" Width="700" >
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header=""  Binding="{Binding FirstName}" Width="*"/>
-                    <DataGridTextColumn Header="Nom" Binding="{Binding LastName}" Width="*"/>
-                    <DataGridHyperlinkColumn Header="Description" Binding="{Binding Email}" Width="*" />
-                    <DataGridCheckBoxColumn Header="Reference" Binding="{Binding IsMember}" Width="*"/>
-                    <DataGridComboBoxColumn Header="Prix"  SelectedItemBinding="{Binding Status}" Width="*"/>
-                    <DataGridComboBoxColumn Header="Stock"  SelectedItemBinding="{Binding Status}" Width="*"/>
-                </DataGrid.Columns>
-            </DataGrid>
-            <StackPanel Width="280" Background="Beige">
-                <TextBlock HorizontalAlignment="Center" FontSize="20">Votre Produit</TextBlock>
-                <Label>Nom</Label>
-                <TextBlock Height="25" Background="White"></TextBlock>
-                <Label>Description</Label>
-                <TextBlock Height="25" Background="White"></TextBlock>
-                <Label>Reference</Label>
-                <TextBlock Height="25" Background="White"></TextBlock>
-                <Label>Prix</Label>
-                <TextBlock Height="25" Background="White"></TextBlock>
-                <Label>Stock</Label>
-                <TextBlock Height="25" Background="White"></TextBlock>
-                <Label>image</Label>
-                <TextBox Height="200" Background="DarkRed"></TextBox>
-                <!--<Button Background="Green" FontWeight="Bold" Foreground="White" Width="100" Margin="0,10,0,0">Ajouter au panier</Button>-->
-            </StackPanel>
-        </DockPanel>
+        <StackPanel>
+            <Menu Height="30" Margin="0,0,0,0" Background="Beige">
+                <MenuItem Header="Categorie de musique" Height="32"  Background="LightGray" FontWeight="Bold" HorizontalAlignment="Center" Foreground="SeaGreen" Margin="0,-1,0,-30">
+                    <MenuItem Header="Tous" Foreground="Black" Click="MenuItem_Click"/>
+                    <MenuItem Header="Jazz" Foreground="Black" Click="MenuItem_Click"/>
+                    <MenuItem Header="Rock" Foreground="Black" Click="MenuItem_Click"/>
+                    <MenuItem Header="Classique" Foreground="Black" Click="MenuItem_Click"/>
+                    <MenuItem Header="Electro" Foreground="Black" Click="MenuItem_Click"/>
+                    <MenuItem Header="Rap" Foreground="Black" Click="MenuItem_Click"/>
+                </MenuItem>
+            </Menu>
+            <DockPanel Background="Beige" Height="573">
+                <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" Width="700">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header=""  Binding="{Binding image}" Width="*"/>
+                        <DataGridTextColumn Header="Nom" Binding="{Binding name}" Width="*"/>
+                        <DataGridHyperlinkColumn Header="Description" Binding="{Binding description}" Width="*" />
+                        <DataGridCheckBoxColumn Header="Reference" Binding="{Binding ref}" Width="*"/>
+                        <DataGridComboBoxColumn Header="Prix"  SelectedItemBinding="{Binding price}" Width="*"/>
+                        <DataGridComboBoxColumn Header="Stock"  SelectedItemBinding="{Binding stock}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <StackPanel Width="280" Background="Beige">
+                    <TextBlock HorizontalAlignment="Center" FontSize="20">Votre Produit</TextBlock>
+                    <Label>Nom</Label>
+                    <TextBlock Height="25" Background="White"></TextBlock>
+                    <Label>Description</Label>
+                    <TextBlock Height="25" Background="White"></TextBlock>
+                    <Label>Reference</Label>
+                    <TextBlock Height="25" Background="White"></TextBlock>
+                    <Label>Prix</Label>
+                    <TextBlock Height="25" Background="White"></TextBlock>
+                    <Label>Stock</Label>
+                    <TextBlock Height="25" Background="White"></TextBlock>
+                    <Label>image</Label>
+                    <TextBox Height="200" Background="DarkRed" Foreground="White" TextAlignment="Center" FontWeight="Bold"> Ici photo</TextBox>
+                    <!--<Button Background="Green" FontWeight="Bold" Foreground="White" Width="100" Margin="0,10,0,0">Ajouter au panier</Button>-->
+                </StackPanel>
+            </DockPanel>
+        </StackPanel>
     </Grid>
 </Page>
