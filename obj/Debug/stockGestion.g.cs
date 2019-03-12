@@ -52,7 +52,7 @@ namespace magasin {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/magasin;component/stockgestion.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/store;component/stockgestion.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\stockGestion.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
