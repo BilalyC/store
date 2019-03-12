@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Moi\Desktop\store\obj\Debug\
+C:\Users\Moi\source\wpf\store\store\obj\Debug\
 store
 none
 false
 DEBUG;TRACE
-C:\Users\Moi\Desktop\store\App.xaml
+C:\Users\Moi\source\wpf\store\store\App.xaml
 41514530602
 
-11-144510416
-16-36327801
+15-1325768975
+18-910745993
 addArticle.xaml;catalog.xaml;MainWindow.xaml;stockGestion.xaml;
 
 True
