@@ -24,5 +24,28 @@ namespace magasin
         {
             InitializeComponent();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var menu = sender as MenuItem;
+            var menuValue = menu.Header.ToString();
+
+            // Condition sur le nom des l'entêtes du menu
+            switch (menuValue)
+            {
+                case "Catalogue":
+                    display.Navigate(new System.Uri("catalog.xaml",
+             UriKind.RelativeOrAbsolute));
+                    break;
+                case "Gestion":
+                    display.Navigate(new System.Uri("stockGestion.xaml",
+             UriKind.RelativeOrAbsolute));
+                    break;
+                case "Ajouter un article":
+                    display.Navigate(new System.Uri("addArticle.xaml",
+             UriKind.RelativeOrAbsolute));
+                    break;
+            }
+        }
     }
 }

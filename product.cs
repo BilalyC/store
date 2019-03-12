@@ -1,4 +1,4 @@
-namespace magasin
+namespace store
 {
     using System;
     using System.Collections.Generic;
@@ -17,6 +17,9 @@ namespace magasin
         public string name { get; set; }
 
         [Required]
+        public byte[] image { get; set; }
+
+        [Required]
         [StringLength(50)]
         public string description { get; set; }
 
@@ -24,8 +27,7 @@ namespace magasin
         [StringLength(50)]
         public string reference { get; set; }
 
-        [Column(TypeName = "numeric")]
-        public decimal price { get; set; }
+        public double price { get; set; }
 
         public int quantity { get; set; }
 

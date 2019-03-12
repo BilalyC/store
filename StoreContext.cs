@@ -1,4 +1,4 @@
-namespace magasin
+namespace store
 {
     using System;
     using System.Data.Entity;
@@ -37,10 +37,6 @@ namespace magasin
             modelBuilder.Entity<product>()
                 .Property(e => e.reference)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<product>()
-                .Property(e => e.price)
-                .HasPrecision(4, 2);
         }
     }
 }

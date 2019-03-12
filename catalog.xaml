@@ -21,31 +21,36 @@
                 </MenuItem>
             </Menu>
             <DockPanel Background="Beige" Height="573">
-                <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" Width="700">
+                <DataGrid Name="products" ItemsSource="{Binding}" AutoGenerateColumns="False" Width="700" SelectionChanged="product_selected">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header=""  Binding="{Binding image}" Width="*"/>
+                        <DataGridTemplateColumn Header="Image"  IsReadOnly="True" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding image}" Width="50"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                         <DataGridTextColumn Header="Nom" Binding="{Binding name}" Width="*"/>
-                        <DataGridHyperlinkColumn Header="Description" Binding="{Binding description}" Width="*" />
-                        <DataGridCheckBoxColumn Header="Reference" Binding="{Binding ref}" Width="*"/>
-                        <DataGridComboBoxColumn Header="Prix"  SelectedItemBinding="{Binding price}" Width="*"/>
-                        <DataGridComboBoxColumn Header="Stock"  SelectedItemBinding="{Binding stock}" Width="*"/>
+                        <DataGridTextColumn Header="Description" Binding="{Binding description}" Width="*" />
+                        <DataGridTextColumn Header="Reference" Binding="{Binding reference}" Width="*"/>
+                        <DataGridTextColumn Header="Prix" Binding="{Binding price}" Width="*"/>
+                        <DataGridTextColumn Header="Quantité en stock" Binding="{Binding quantity}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <StackPanel Width="280" Background="Beige">
                     <TextBlock HorizontalAlignment="Center" FontSize="20">Votre Produit</TextBlock>
                     <Label>Nom</Label>
-                    <TextBlock Height="25" Background="White"></TextBlock>
+                    <TextBlock Height="25" Background="White" x:Name="nameProduct"></TextBlock>
                     <Label>Description</Label>
-                    <TextBlock Height="25" Background="White"></TextBlock>
+                    <TextBlock Height="25" Background="White" x:Name="descProduct"></TextBlock>
                     <Label>Reference</Label>
-                    <TextBlock Height="25" Background="White"></TextBlock>
+                    <TextBlock Height="25" Background="White" x:Name="refProduct"></TextBlock>
                     <Label>Prix</Label>
-                    <TextBlock Height="25" Background="White"></TextBlock>
+                    <TextBlock Height="25" Background="White" x:Name="priceProduct"></TextBlock>
                     <Label>Stock</Label>
-                    <TextBlock Height="25" Background="White"></TextBlock>
+                    <TextBlock Height="25" Background="White" x:Name="stockProduct"></TextBlock>
                     <Label>image</Label>
-                    <TextBox Height="200" Background="DarkRed" Foreground="White" TextAlignment="Center" FontWeight="Bold"> Ici photo</TextBox>
-                    <!--<Button Background="Green" FontWeight="Bold" Foreground="White" Width="100" Margin="0,10,0,0">Ajouter au panier</Button>-->
+                    <Image Height="150" Width="280" x:Name="image" Source="{Binding image}" />
                 </StackPanel>
             </DockPanel>
         </StackPanel>

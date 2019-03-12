@@ -1,4 +1,4 @@
-namespace magasin
+namespace store
 {
     using System;
     using System.Collections.Generic;

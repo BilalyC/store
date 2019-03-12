@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:magasin"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="720" Width="1080">
     <Grid>
         <Menu>
             <MenuItem Header="_Magasin">
@@ -16,6 +16,6 @@
                 <MenuItem Header="Ajouter un produit" Click="MenuItem_Click"/>
             </MenuItem>
         </Menu>
-        <Frame Height="375" Name="display" Source="customersList.xaml" NavigationUIVisibility="Hidden"></Frame>
+        <Frame Height="600" Name="display" Source="addArticle.xaml" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>
