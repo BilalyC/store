@@ -6,39 +6,42 @@
       xmlns:local="clr-namespace:magasin"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1000"
-      Title="stockGestion">
+      Title="stockGestion" Loaded="page_Loaded">
 
     <Grid Background="AliceBlue" Margin="-2,0,2,0">
         <StackPanel>
             <TextBlock Height="35" FontSize="28" FontWeight="Bold" TextAlignment="Center"> Gestion des Stocks</TextBlock>
-            <DockPanel>
+            <DockPanel Height="560">
                 <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" Width="700">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header=""  Binding="{Binding image}" Width="*"/>
                         <DataGridTextColumn Header="Nom" Binding="{Binding name}" Width="*"/>
                         <DataGridHyperlinkColumn Header="Description" Binding="{Binding description}" Width="*" />
                         <DataGridCheckBoxColumn Header="Reference" Binding="{Binding ref}" Width="*"/>
+                        <DataGridCheckBoxColumn Header="Catégorie" Binding="{Binding categorie}" Width="*"/>
                         <DataGridComboBoxColumn Header="Prix"  SelectedItemBinding="{Binding price}" Width="*"/>
                         <DataGridComboBoxColumn Header="Stock"  SelectedItemBinding="{Binding stock}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <StackPanel Width="280" Background="AliceBlue">
                     <TextBlock HorizontalAlignment="Center" FontSize="20">Votre Produit</TextBlock>
-                    <Label>Nom</Label>
+                    <Label>Nom : </Label>
                     <TextBlock Height="25" Background="White"></TextBlock>
-                    <Label>Description</Label>
+                    <Label>Description : </Label>
                     <TextBlock Height="25" Background="White"></TextBlock>
-                    <Label>Reference</Label>
+                    <Label>Reference : </Label>
+                    <TextBlock Height="25" Background="White"></TextBlock>
+                    <Label>Catégorie : </Label>
                     <TextBlock Height="25" Background="White"></TextBlock>
                     <Label>Prix :</Label>
                     <TextBlock Height="25" Background="White"></TextBlock>
                     <Label>Stock :</Label>
                     <TextBlock Height="25" Background="White"></TextBlock>
                     <Label>Image :</Label>
-                    <TextBox Height="200" Background="DarkRed" Foreground="White" TextAlignment="Center" FontWeight="Bold">Ici photo</TextBox>
+                    <TextBox Height="150" Background="DarkRed" Foreground="White" TextAlignment="Center" FontWeight="Bold">Ici photo</TextBox>
                     <DockPanel HorizontalAlignment="Center" Width="250" Margin="0,10,0,0">
                         <Button Background="Red" FontWeight="Bold" Foreground="White" Width="100" Margin="0,10,0,0">Retirer Article</Button>
-                        <Button Background="Green" FontWeight="Bold" Foreground="White" Width="100" Margin="0,10,0,0">Valider</Button>
+                        <Button Background="Green" FontWeight="Bold" Foreground="White" Width="100" Margin="0,10,0,0" HorizontalAlignment="Right">Modifier</Button>
                     </DockPanel>
                 </StackPanel>
             </DockPanel>

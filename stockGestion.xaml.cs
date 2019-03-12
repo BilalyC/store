@@ -24,5 +24,11 @@ namespace magasin
         {
             InitializeComponent();
         }
+        private void page_Loaded(object sender, RoutedEventArgs e)
+        {
+            //appointDataGrid.ItemsSource = db.appointments.ToList();
+            //editComboboxCustomer.ItemsSource = db.customers.ToList();
+            //editComboboxBroker.ItemsSource = db.brokers.ToList();
+        }
     }
 }
