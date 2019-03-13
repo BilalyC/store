@@ -41,7 +41,7 @@ namespace magasin
                     display.Navigate(new System.Uri("stockGestion.xaml",
              UriKind.RelativeOrAbsolute));
                     break;
-                case "Ajouter un article":
+                case "Ajouter un produit":
                     display.Navigate(new System.Uri("addArticle.xaml",
              UriKind.RelativeOrAbsolute));
                     break;

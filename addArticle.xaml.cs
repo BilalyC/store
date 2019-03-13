@@ -36,8 +36,9 @@ namespace magasin
         private void FindImage(object sender, RoutedEventArgs e)
         {
             OpenFileDialog of = new OpenFileDialog();
+            of.InitialDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
             //For any other formats
-            of.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
+            of.Filter = "Fichiers d'image (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
             if (of.ShowDialog() == true)
             {
                 image.Text = of.FileName;
@@ -53,7 +54,7 @@ namespace magasin
         private void CreateArticle(object sender, RoutedEventArgs e)
         {
             string errorMessage = "";
-            string regexName = @"^[A-Za-zéèàêâôûüïç\-]+$";
+            string regexName = @"^[A-Za-zéèàêâôûüïç\- ]+$";
             string regexDefinition = @"^[A-Za-zéèàêâôûüïç.,:?'\- ]+$";
             string regexReference = @"^[A-Za-z0-9]+$";
 
@@ -110,7 +111,7 @@ namespace magasin
 
             if (!String.IsNullOrEmpty(price.Text))
             {
-                if (int.TryParse(price.Text, out int value))
+                if (double.TryParse(price.Text, out double value))
                 {
                     if (value <= 0)
                     {
