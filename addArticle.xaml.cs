@@ -33,24 +33,30 @@ namespace magasin
             Categories.ItemsSource = db.category.ToList();
         }
 
+        // Méthode qui ouvre une fenêtre permettant la sélection d'une image
         private void FindImage(object sender, RoutedEventArgs e)
         {
             OpenFileDialog of = new OpenFileDialog();
+            // dossier sur lequel la boite de dialogue ouvre
+            // Environment.CurrentDirectory renvoit le répertoire de travail actuel
+            // Directory.GetParent(Environment.CurrentDirectory).Parent.FullName renvoit le répertoire du projet en cours
             of.InitialDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-            //For any other formats
-            of.Filter = "Fichiers d'image (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
+            // filtrage sur le type de fichier que l'on cherche
+            of.Filter = "Fichiers d'image (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG"; 
             if (of.ShowDialog() == true)
             {
-                image.Text = of.FileName;
+                image.Text = of.FileName; // marque le chemin d'accès de l'image
             }
         }
 
+        // Méthode se déclenchant sur le choix d'un objet du ComboBox
         private void ComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox combobox = ((ComboBox)sender);
             selectedCategory = combobox.SelectedItem as category;
         }
 
+        // Méthode permettant la création d'un produit
         private void CreateArticle(object sender, RoutedEventArgs e)
         {
             string errorMessage = "";
@@ -58,10 +64,15 @@ namespace magasin
             string regexDefinition = @"^[A-Za-zéèàêâôûüïç.,:?'\- ]+$";
             string regexReference = @"^[A-Za-z0-9]+$";
 
-            // Vérification des TextBox : si la valeur est null, s'il est composé uniquement de chiffres et compris entre 2 limites
-            // Vérification des ComboBox : si un objet a été choisi
-            // Vérification du DatePicker : si une date a été choisie
-            
+            // Vérification du ComboBox : si un objet a été choisi
+            if (selectedCategory == null)
+            {
+                errorMessage += "Choisissez une catégorie\n";
+            }
+
+            // Vérification des TextBox : 
+            // - pour les string, si la valeur est null et si elle correspond au regex
+            // - pour les autres, si la valeur est null, s'il est composé uniquement de chiffres et compris entre 2 limites
 
             if (!String.IsNullOrEmpty(name.Text))
             {
@@ -90,11 +101,6 @@ namespace magasin
             else
             {
                 errorMessage += "Ecrire une description\n";
-            }
-
-            if (selectedCategory == null)
-            {
-                errorMessage += "Choisissez une catégorie\n";
             }
 
             if (!String.IsNullOrEmpty(reference.Text))
@@ -152,7 +158,7 @@ namespace magasin
             {
                 product productToAdd = new product();
                 productToAdd.name = name.Text;
-                productToAdd.image = File.ReadAllBytes(image.Text);
+                productToAdd.image = File.ReadAllBytes(image.Text); // permet de lire le fichier dans un tableau d'octets
                 productToAdd.description = description.Text;
                 productToAdd.idCategory = selectedCategory.idCategory;
                 productToAdd.reference = reference.Text;
@@ -161,8 +167,10 @@ namespace magasin
                 db.product.Add(productToAdd); // insertion dans la bdd
                 db.SaveChanges(); // enregistre les changements
                 MessageBox.Show("L'article a bien été ajouté dans la liste.", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                // remise à zéro des champs
                 name.Clear();
-                image.Clear();
+                image.Text = "";
                 description.Clear();
                 Categories.SelectedIndex = -1;
                 reference.Clear();

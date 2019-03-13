@@ -8,20 +8,32 @@
       d:DesignHeight="600" d:DesignWidth="1000"
       Title="catalog">
 
-    <Grid Background="Beige">
+    <Grid Background="#f40000">
         <StackPanel>
-            <Menu Height="30" Margin="0,0,0,0" Background="Beige">
-                <MenuItem Header="Categorie de musique" Height="32"  Background="LightGray" FontWeight="Bold" HorizontalAlignment="Center" Foreground="SeaGreen" Margin="0,-1,0,-30">
-                    <MenuItem Header="Tous" Foreground="Black" Click="MenuItem_Click"/>
-                    <MenuItem Header="Jazz" Foreground="Black" Click="MenuItem_Click"/>
-                    <MenuItem Header="Rock" Foreground="Black" Click="MenuItem_Click"/>
-                    <MenuItem Header="Classique" Foreground="Black" Click="MenuItem_Click"/>
-                    <MenuItem Header="Electro" Foreground="Black" Click="MenuItem_Click"/>
-                    <MenuItem Header="Rap" Foreground="Black" Click="MenuItem_Click"/>
+            <Menu Height="30" Margin="0,0,0,0" Background="Black">
+                <MenuItem Header="Categorie de musique" Height="32"  Background="#FF080808" FontWeight="Bold" HorizontalAlignment="Center" Foreground="SeaGreen" Margin="0,-1,0,-30" BorderBrush="White" BorderThickness="3">
+                    <MenuItem Header="Tous" Foreground="Black" x:Name="all" Click="MenuItem_Click"/>
+                    <MenuItem Header="Jazz" Foreground="Black" x:Name="jazz" Click="MenuItem_Click"/>
+                    <MenuItem Header="Rock" Foreground="Black" x:Name="rock" Click="MenuItem_Click"/>
+                    <MenuItem Header="Classique" Foreground="Black" x:Name="classique" Click="MenuItem_Click"/>
+                    <MenuItem Header="Electro" Foreground="Black" x:Name="electro" Click="MenuItem_Click"/>
+                    <MenuItem Header="Rap" Foreground="Black" x:Name="rap" Click="MenuItem_Click"/>
                 </MenuItem>
             </Menu>
-            <DockPanel Background="Beige" Height="573">
+            <DockPanel Height="573">
+                <DockPanel.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FFDC0909" Offset="1"/>
+                    </LinearGradientBrush>
+                </DockPanel.Background>
                 <DataGrid Name="products" ItemsSource="{Binding}" AutoGenerateColumns="False" Width="700" SelectionChanged="product_selected">
+                    <DataGrid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </DataGrid.Background>
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="Image"  IsReadOnly="True" Width="*">
                             <DataGridTemplateColumn.CellTemplate>
@@ -37,8 +49,15 @@
                         <DataGridTextColumn Header="Quantité en stock" Binding="{Binding quantity}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
-                <StackPanel Width="280" Background="Beige">
-                    <TextBlock HorizontalAlignment="Center" FontSize="20">Votre Produit</TextBlock>
+                <StackPanel Width="280">
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="#FFD61313" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
+                    <TextBlock HorizontalAlignment="Center" FontSize="36" Foreground="White" FontFamily="Ballet Harmony" >Votre Produit</TextBlock>
+                    <Image Height="200" Width="280" x:Name="image" Source="{Binding image}" />
                     <Label>Nom</Label>
                     <TextBlock Height="25" Background="White" x:Name="nameProduct"></TextBlock>
                     <Label>Description</Label>
@@ -49,8 +68,6 @@
                     <TextBlock Height="25" Background="White" x:Name="priceProduct"></TextBlock>
                     <Label>Stock</Label>
                     <TextBlock Height="25" Background="White" x:Name="stockProduct"></TextBlock>
-                    <Label>image</Label>
-                    <Image Height="150" Width="280" x:Name="image" Source="{Binding image}" />
                 </StackPanel>
             </DockPanel>
         </StackPanel>

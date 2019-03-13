@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1080">
     <Grid>
-        <Menu>
+        <Menu Height="20" Margin="0,-660,0,0">
             <MenuItem Header="_Magasin">
                 <MenuItem Header="Catalogue" Click="MenuItem_Click"/>
                 <MenuItem Header="Gestion" Click="MenuItem_Click"/>
@@ -16,6 +16,10 @@
                 <MenuItem Header="Ajouter un produit" Click="MenuItem_Click"/>
             </MenuItem>
         </Menu>
-        <Frame Height="600" Name="display" Source="addArticle.xaml" NavigationUIVisibility="Hidden"></Frame>
+        <StackPanel>
+            <TextBlock Width="600" TextAlignment="Center" FontFamily="/store;component/antonellie_calligraphy/#Antonellie Calligraphy Demo" FontSize="48" Margin="0,200,0,0">Bienvenu</TextBlock>
+            <Button Width="200" Height="100" Margin="0,200,0,0">Notre catalogue</Button>
+        </StackPanel>
+        <Frame Height="640" Margin="0,20,0,0" Name="display" Source="catalog.xaml" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>

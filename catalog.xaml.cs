@@ -35,7 +35,31 @@ namespace magasin
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            //rien rien. 
+            var menu = sender as MenuItem;
+            var menuValue = menu.Header.ToString();
+
+            // Condition sur le nom des l'entêtes du sous-menu
+            switch (menuValue)
+            {
+                case "Tous":
+                    products.ItemsSource = db.product.ToList();
+                    break;
+                case "Jazz":
+                    products.ItemsSource = db.product.Where(pro => pro.idCategory == 1).ToList();
+                    break;
+                case "Rock":
+                    products.ItemsSource = db.product.Where(pro => pro.idCategory == 2).ToList();
+                    break;
+                case "Classique":
+                    products.ItemsSource = db.product.Where(pro => pro.idCategory == 3).ToList();
+                    break;
+                case "Electro":
+                    products.ItemsSource = db.product.Where(pro => pro.idCategory == 4).ToList();
+                    break;
+                case "Rap":
+                    products.ItemsSource = db.product.Where(pro => pro.idCategory == 5).ToList();
+                    break;
+            }
         }
 
         private void product_selected(object sender, SelectionChangedEventArgs e)
